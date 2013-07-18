@@ -150,9 +150,9 @@ namespace Svn2Svn
 
                 foreach (string targetPath in filesAdd)
                 {
-                    if (! File.Exists(targetPath))
+                    if (!File.Exists(targetPath) && !Directory.Exists(targetPath))
                     {
-                        throw new Exception(string.Format("Added file '{0}' doesn't exist. Did you need to specify /root:<path>?",
+                        throw new Exception(string.Format("Added file or directory '{0}' doesn't exist. Did you need to specify /root:<path>?",
                             targetPath));
                     }
 
